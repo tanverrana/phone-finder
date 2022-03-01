@@ -88,7 +88,7 @@ const displayPhoneDetails = details => {
         <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.releaseDate == "" ? "No Release Date" : details.releaseDate}</p>
         <p class="card-text"><span class ="fw-bold">Display Size:</span> ${details.mainFeatures.displaySize}</p>
         <p class="card-text"><span class ="fw-bold">Chip Set:</span> ${details.mainFeatures.chipSet}</p>
-        <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.mainFeatures.memory}</p>
+        <p class="card-text"><span class ="fw-bold">Memory:</span> ${details.mainFeatures.memory}</p>
         <p class="card-text"><span class ="fw-bold">Sensors:</span> ${details.mainFeatures.sensors}</p>
         <p class="card-text"><span class ="fw-bold">WLAN:</span> ${details.others.WLAN}</p>
         <p class="card-text"><span class ="fw-bold">Bluetooth:</span> ${details.others.Bluetooth}</p>
