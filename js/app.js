@@ -8,7 +8,7 @@ const searchMobile = () => {
         const noText = document.getElementById("no-text");
         noText.style.display = "block";
     }
-    else if (typeof searchText == 'number') {
+    else if (typeof searchText === 'number') {
         const noText = document.getElementById("no-text");
         noText.style.display = "block";
     }
@@ -83,6 +83,12 @@ const displayPhoneDetails = details => {
         <p class="card-text"><span class ="fw-bold">Chip Set:</span> ${details.mainFeatures.chipSet}</p>
         <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.mainFeatures.memory}</p>
         <p class="card-text"><span class ="fw-bold">Sensors:</span> ${details.mainFeatures.sensors}</p>
+        <p class="card-text"><span class ="fw-bold">WLAN:</span> ${details.others.WLAN}</p>
+        <p class="card-text"><span class ="fw-bold">Bluetooth:</span> ${details.others.Bluetooth}</p>
+        <p class="card-text"><span class ="fw-bold">GPS:</span> ${details.others.GPS}</p>
+        <p class="card-text"><span class ="fw-bold">NFC:</span> ${details.others.NFC}</p>
+        <p class="card-text"><span class ="fw-bold">Radio:</span> ${details.others.Radio}</p>
+        <p class="card-text"><span class ="fw-bold">USB:</span> ${details.others.USB}</p>
         
     </div>`;
     phoneDetails.appendChild(div);
