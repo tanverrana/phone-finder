@@ -79,7 +79,7 @@ const displayPhoneDetails = details => {
     <img src="${details.image}" class="card-img-top" height="700" alt="...">
     <div class="card-body">
         <h3 class="card-title"> ${details.name}</h3>
-        <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.releaseDate}</p>
+        <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.releaseDate == "" ? "No Release Date" : details.releaseDate}</p>
         <p class="card-text"><span class ="fw-bold">Display Size:</span> ${details.mainFeatures.displaySize}</p>
         <p class="card-text"><span class ="fw-bold">Chip Set:</span> ${details.mainFeatures.chipSet}</p>
         <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.mainFeatures.memory}</p>
