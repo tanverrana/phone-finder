@@ -24,6 +24,7 @@ const searchMobile = () => {
 //Display Search Result
 const displaySearchResult = phones => {
     const searchResult = document.getElementById("search-result");
+    const first20Data = phones.slice(0, 20);
     //Hide Search Error Message
     const noText = document.getElementById("no-text");
     noText.style.display = "none";
@@ -39,7 +40,7 @@ const displaySearchResult = phones => {
         noResult.style.display = "block";
     }
     else {
-        phones.forEach(phone => {
+        first20Data.forEach(phone => {
             //console.log(phone);
             const div = document.createElement("div");
             div.classList.add("col-lg-4")
