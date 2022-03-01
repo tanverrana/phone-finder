@@ -18,24 +18,32 @@ const searchMobile = () => {
 const displaySearchResult = phones => {
     const searchResult = document.getElementById("search-result");
     // console.log(phones);
-    phones.forEach(phone => {
-        //console.log(phone);
-        const div = document.createElement("div");
-        div.classList.add("col-lg-4")
-        div.classList.add("col-md-12")
-        div.classList.add("my-3")
-        div.innerHTML = `
-         <div class="card" style="width: 18rem;">
-                        <img src="${phone.image}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">${phone.phone_name}</h5>
-                            <p class="card-text">${phone.brand}</p>
-                            <button onclick="phoneDetails('${phone.slug}')" class="btn bg-primary text-white">More Information</button>
+    searchResult.innerHTML = "";
+    if (phones.length == 0) {
+        //show no result found
+        const noResult = document.getElementById("no-result");
+        noResult.style.display = "block";
+    }
+    else {
+        phones.forEach(phone => {
+            //console.log(phone);
+            const div = document.createElement("div");
+            div.classList.add("col-lg-4")
+            div.classList.add("col-md-12")
+            div.classList.add("my-3")
+            div.innerHTML = `
+             <div class="card" style="width: 18rem;">
+                            <img src="${phone.image}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">${phone.phone_name}</h5>
+                                <p class="card-text">${phone.brand}</p>
+                                <button onclick="phoneDetails('${phone.slug}')" class="btn bg-primary text-white">More Information</button>
+                            </div>
                         </div>
-                    </div>
-        `;
-        searchResult.appendChild(div);
-    })
+            `;
+            searchResult.appendChild(div);
+        })
+    }
 
 }
 
@@ -55,11 +63,12 @@ const displayPhoneDetails = details => {
     div.innerHTML = `
     <img src="${details.image}" class="card-img-top" height="700" alt="...">
     <div class="card-body">
-        <h5 class="card-title"> ${details.name}</h5>
-        <p class="card-text">${details.releaseDate}</p>
-        <p class="card-text">${details.mainFeatures.displaySize}</p>
-        <p class="card-text">${details.mainFeatures.chipSet}</p>
-        <p class="card-text">${details.mainFeatures.memory}</p>
+        <h3 class="card-title"> ${details.name}</h3>
+        <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.releaseDate}</p>
+        <p class="card-text"><span class ="fw-bold">Display Size:</span> ${details.mainFeatures.displaySize}</p>
+        <p class="card-text"><span class ="fw-bold">Chip Set:</span> ${details.mainFeatures.chipSet}</p>
+        <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.mainFeatures.memory}</p>
+        <p class="card-text"><span class ="fw-bold">Sensors:</span> ${details.mainFeatures.sensors}</p>
         
     </div>`;
     phoneDetails.appendChild(div);
