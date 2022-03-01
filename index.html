@@ -13,13 +13,17 @@
 
 <body class="bg-gray container">
     <header>
-        <h1 class="text-success text-center">Phone Finder</h1>
+        <div class="bg-dark">
+            <h1 class="text-warning text-center">Phone Finder</h1>
+        </div>
+        <!-- Search Field And Search Button -->
         <div class="input-group mb-3 w-50 mx-auto">
-            <input id="search-field" type="text" class="form-control" placeholder="Search Your Phone"
-                aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button onclick="searchMobile()" class="btn btn-outline-secondary" type="button"
+            <input id="search-field" type="text" class="form-control border-2 border-warning text-dark"
+                placeholder="Search Your Phone" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchMobile()" class="btn btn-outline-warning fw-bold bg-warning text-dark" type="button"
                 id="button-search">Search</button>
         </div>
+        <!-- Display Error Message -->
         <div>
             <p id="no-result" class="notify">❌ No result found, Please search again</p>
             <p id="no-text" class="notify">❌ Please Enter Phone Name</p>
@@ -28,10 +32,12 @@
     </header>
     <main>
         <section>
+            <!-- Details of Phone -->
             <div id="phone-details" class="mx-auto w-50">
             </div>
         </section>
         <section>
+            <!-- Search Resul -->
             <div id="search-result" class="row">
                 <p id="release-date"></p>
                 <!-- <div class="col-md-12 col-lg-4">

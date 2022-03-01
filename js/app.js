@@ -2,8 +2,7 @@
 const searchMobile = () => {
     const searchField = document.getElementById("search-field");
     const searchText = searchField.value;
-    //console.log(searchText);
-
+    //Empty search Field Error Handle
     if (searchText == "") {
         const noText = document.getElementById("no-text");
         noText.style.display = "block";
@@ -14,6 +13,7 @@ const searchMobile = () => {
     }
 
     else {
+        //API Link
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
         fetch(url)
             .then(res => res.json())
@@ -24,6 +24,7 @@ const searchMobile = () => {
 //Display Search Result
 const displaySearchResult = phones => {
     const searchResult = document.getElementById("search-result");
+    //Get only 20 Result
     const first20Data = phones.slice(0, 20);
     //Hide Search Error Message
     const noText = document.getElementById("no-text");
@@ -34,6 +35,7 @@ const displaySearchResult = phones => {
 
     //Remover Previous Data
     searchResult.innerHTML = "";
+    //no result found condition
     if (phones.length == 0) {
         //show no result found
         const noResult = document.getElementById("no-result");
@@ -42,6 +44,7 @@ const displaySearchResult = phones => {
     else {
         first20Data.forEach(phone => {
             //console.log(phone);
+            //Create div and div class
             const div = document.createElement("div");
             div.classList.add("col-lg-4")
             div.classList.add("col-md-12")
@@ -52,7 +55,7 @@ const displaySearchResult = phones => {
                             <div class="card-body">
                                 <h5 class="card-title">${phone.phone_name}</h5>
                                 <p class="card-text">${phone.brand}</p>
-                                <button onclick="phoneDetails('${phone.slug}')" class="btn bg-primary text-white">More Information</button>
+                                <button onclick="phoneDetails('${phone.slug}')" class="btn bg-warning text-dark">Details</button>
                             </div>
                         </div>
             `;
@@ -61,20 +64,23 @@ const displaySearchResult = phones => {
     }
 
 }
-
+// Phone Details
 const phoneDetails = id => {
-    //console.log(phoneId);
+    //Connect Phone Detail API 
     const url = `https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhoneDetails(data.data))
 }
+//Display Phone Details
 const displayPhoneDetails = details => {
     //console.log(details.mainFeatures.displaySize);
     const phoneDetails = document.getElementById("phone-details");
+    //Remove Previous Phone details
     phoneDetails.textContent = "";
     const div = document.createElement("div");
     div.classList.add("card");
+    //Display Data HTML Format
     div.innerHTML = `
     <img src="${details.image}" class="card-img-top" height="700" alt="...">
     <div class="card-body">
