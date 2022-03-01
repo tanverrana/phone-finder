@@ -3,21 +3,35 @@ const searchMobile = () => {
     const searchField = document.getElementById("search-field");
     const searchText = searchField.value;
     //console.log(searchText);
+
+    if (searchText == "") {
+        const noText = document.getElementById("no-text");
+        noText.style.display = "block";
+    }
+    else if (typeof searchText == 'number') {
+        const noText = document.getElementById("no-text");
+        noText.style.display = "block";
+    }
+
+    else {
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displaySearchResult(data.data))
+    }
     searchField.value = "";
-    /* if (searchText == "") {
-
-    } */
-
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displaySearchResult(data.data))
-
 }
 //Display Search Result
 const displaySearchResult = phones => {
     const searchResult = document.getElementById("search-result");
-    // console.log(phones);
+    //Hide Search Error Message
+    const noText = document.getElementById("no-text");
+    noText.style.display = "none";
+    //Hide No result Error Message
+    const noResult = document.getElementById("no-result");
+    noResult.style.display = "none";
+
+    //Remover Previous Data
     searchResult.innerHTML = "";
     if (phones.length == 0) {
         //show no result found
@@ -72,4 +86,5 @@ const displayPhoneDetails = details => {
         
     </div>`;
     phoneDetails.appendChild(div);
+
 }
