@@ -82,7 +82,7 @@ const displayPhoneDetails = details => {
     div.classList.add("card");
     //Display Data HTML Format
     div.innerHTML = `
-    <img src="${details.image}" class="card-img-top" height="700" alt="...">
+    <img src="${details.image}" class="card-img-top" alt="...">
     <div class="card-body">
         <h3 class="card-title"> ${details.name}</h3>
         <p class="card-text"><span class ="fw-bold">Release Date:</span> ${details.releaseDate == "" ? "No Release Date" : details.releaseDate}</p>
