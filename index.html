@@ -11,8 +11,16 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body>
-
+<body class="bg-gray">
+    <header>
+        <h1 class="text-success text-center">Phone Finder</h1>
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input id="search-field" type="text" class="form-control" placeholder="Search Your Phone"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchFood()" class="btn btn-outline-secondary" type="button"
+                id="button-search">Search</button>
+        </div>
+    </header>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
